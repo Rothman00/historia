@@ -1,0 +1,78 @@
+body {
+  background: #fffaf9;
+  font-family: 'Georgia', serif;
+  text-align: center;
+}
+
+.titulo {
+  color: #e91e63;
+  margin: 20px;
+}
+
+.collage {
+  position: relative;
+  display: inline-block;
+}
+
+.collage-img {
+  width: 90%;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.hotspot {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  background: rgba(255, 0, 0, 0.0); /* invisible */
+}
+
+.boton-final {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e91e63;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 1.2em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+}
+
+.modal video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.frase {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: #d81b60;
+}
