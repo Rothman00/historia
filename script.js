@@ -16,18 +16,18 @@ const frases = [
 
 // Mapear imágenes a videos
 const hotspots = [
-  { id: 1, video: "videos/video1.mp4", frase: frases[0] },
-  { id: 2, video: "videos/video2.mp4", frase: frases[1] },
-  { id: 3, video: "videos/video3.mp4", frase: frases[2] },
-  { id: 4, video: "videos/video4.mp4", frase: frases[3] },
-  { id: 5, video: "videos/video5.mp4", frase: frases[4] },
-  { id: 6, video: "videos/video6.mp4", frase: frases[5] },
-  { id: 7, video: "videos/video7.mp4", frase: frases[6] },
-  { id: 8, video: "videos/video8.mp4", frase: frases[7] },
-  { id: 9, video: "videos/video9.mp4", frase: frases[8] },
-  { id: 10, video: "videos/video10.mp4", frase: frases[9] },
-  { id: 11, video: "videos/video11.mp4", frase: frases[10] },
-  { id: 12, video: "videos/video12.mp4", frase: frases[11] }
+  { id: 1, video: "videos/video (1).mp4", frase: frases[0] },
+  { id: 2, video: "videos/video (2).mp4", frase: frases[1] },
+  { id: 3, video: "videos/video (3).mp4", frase: frases[2] },
+  { id: 4, video: "videos/video (4).mp4", frase: frases[3] },
+  { id: 5, video: "videos/video (5).mp4", frase: frases[4] },
+  { id: 6, video: "videos/video (6).mp4", frase: frases[5] },
+  { id: 7, video: "videos/video (7).mp4", frase: frases[6] },
+  { id: 8, video: "videos/video (8).mp4", frase: frases[7] },
+  { id: 9, video: "videos/video (9).mp4", frase: frases[8] },
+  { id: 10, video: "videos/video (10).mp4", frase: frases[9] },
+  { id: 11, video: "videos/video (11).mp4", frase: frases[10] },
+  { id: 12, video: "videos/video (12).mp4", frase: frases[11] }
 ];
 
 // Renderizar dinámicamente los hotspots en el collage
@@ -36,7 +36,7 @@ function renderHotspots() {
   hotspots.forEach((h, index) => {
     let div = document.createElement("div");
     div.className = "hotspot";
-    div.style.top = `${10 + index * 5}%`;   // posiciones provisionales
+    div.style.top = `${10 + index * 5}%`;
     div.style.left = `${15 + index * 3}%`;
     div.onclick = () => openVideo(h.video, h.frase);
     container.appendChild(div);
@@ -59,3 +59,36 @@ function closeModal() {
 }
 
 window.onload = renderHotspots;
+
+function crearCorazones() {
+  const heart = document.createElement("div");
+  heart.className = "corazon";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 8000);
+}
+setInterval(crearCorazones, 500);
+
+
+// Reproductor de música
+const canciones = [];
+let indice = 0;
+const audio = document.getElementById("audioPlayer");
+
+function reproducir() {
+    if (canciones.length === 0) {
+        for (let index = 1; index <= 10; index++) {
+            canciones.push(`music/fondo (${index}).mp3`);
+        }
+    }
+    audio.src = canciones[indice];
+    audio.play();
+}
+
+audio.addEventListener("ended", () => {
+    indice = (indice + 1) % canciones.length;
+    reproducir();
+});
+
+reproducir();
