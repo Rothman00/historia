@@ -1,17 +1,17 @@
 // Frases dinámicas
 const frases = [
-  "Nuestro primer viaje juntos",
-  "El día que me robaste un beso",
-  "Nuestra primera cita",
-  "Un momento inolvidable",
-  "El abrazo que me dio calma",
-  "Nuestra aventura en la playa",
-  "El día que dijimos te amo",
+  "Simpre juntos mi amor ❤️",
+  "Una aventura a tu lado 🌍",
+  "Siempre a tu lado",
+  "Desde el inicio de nuestra historia",
+  "Cada año cada dia cada momento juntos",
+  "El amor que nos une, es eterno",
+  "Juntos para siempre",
   "Una locura que nos unió más",
   "Cuando descubrimos un mundo nuevo",
   "El inicio de nuestra historia",
   "Tu sonrisa, mi mejor recuerdo",
-  "Nuestro aniversario especial",
+  "Una aventura inolvidable",
 ];
 
 // Mapear imágenes a videos
@@ -142,6 +142,7 @@ function openVideo(src, frase) {
   document.getElementById("modal").classList.remove("hidden");
   let video = document.getElementById("modalVideo");
   video.src = src;
+  audio.volume = src == 'assets/videogeneral.mp4' ? 0.3 : 1;
   video.play();
   document.getElementById("fraseTexto").innerText = frase;
 }
@@ -149,6 +150,7 @@ function openVideo(src, frase) {
 function closeModal() {
   document.getElementById("modal").classList.add("hidden");
   let video = document.getElementById("modalVideo");
+  audio.volume = 1;
   video.pause();
   video.src = "";
 }
@@ -236,3 +238,7 @@ function crearFuegos() {
 document.querySelector(".boton-final").addEventListener("click", () => {
   crearFuegos();
 });
+
+function isMobile() {
+  return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+}
