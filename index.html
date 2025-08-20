@@ -9,15 +9,13 @@
 <body>
   <audio id="audioPlayer" autoplay></audio>
   <h1 class="titulo">Nuestra historia en 3 años</h1>
-  <!-- Collage -->
-  <div id="collage-container" class="collage">
-    <img src="assets/collage.png" alt="Collage" class="collage-img">
-    
+  <div id="collage-container" class="collage" style="position: relative; width: 100%; max-width: 800px;">
+    <img src="assets/collage.png" alt="Collage" style="width: 100%; height: auto; display: block;">
     <!-- Botón especial -->
     <button onclick="openVideo('assets/videogeneral.mp4','Nuestro viaje completo 💕')" 
       class="boton-final">Toca aquí 💕</button>
   </div>
-
+  <canvas id="fireworks"></canvas>
   <!-- Modal -->
   <div id="modal" class="modal hidden">
     <div class="modal-content">
